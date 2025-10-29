@@ -339,6 +339,29 @@ This will show:
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines, along with our [Code of Conduct](CODE_OF_CONDUCT.md) and [Security Policy](SECURITY.md).
 
+### Commit & Release Workflow
+
+We use [`@programinglive/commiter`](https://www.npmjs.com/package/@programinglive/commiter) to enforce Conventional Commits and automate releases.
+
+- Commit format: `type(scope): subject`
+- Supported types: `feat`, `fix`, `perf`, `refactor`, `docs`, `style`, `test`, `build`, `ci`, `chore`, `revert`
+- Husky hooks run `commitlint` for message validation and `npm test` (alias for `composer test`).
+
+Release scripts:
+
+```bash
+npm run release       # auto-detect version bump
+npm run release:patch # 1.0.0 -> 1.0.1
+npm run release:minor # 1.0.0 -> 1.1.0
+npm run release:major # 1.0.0 -> 2.0.0
+```
+
+After releasing, push the tag and commits:
+
+```bash
+git push --follow-tags origin main
+```
+
 ## Project Resources
 
 - [Product Requirements Document](docs/PRD.md)
