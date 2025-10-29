@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+$defaultLogPath = function_exists('storage_path')
+    ? storage_path('logs')
+    : dirname(__DIR__, 2) . '/storage/logs';
+
 return [
     /*
     |--------------------------------------------------------------------------
@@ -34,5 +38,12 @@ return [
             'sort' => 'freq',
             'output' => 'SENTRY_TODO.md',
         ],
+    ],
+
+    'logging' => [
+        'enabled' => env('SENTRY_RESOLVE_LOG_ENABLED', true),
+        'path' => env('SENTRY_RESOLVE_LOG_PATH', $defaultLogPath),
+        'frequency' => env('SENTRY_RESOLVE_LOG_FREQUENCY', 'daily'),
+        'prefix' => env('SENTRY_RESOLVE_LOG_PREFIX', 'sentry-resolve'),
     ],
 ];

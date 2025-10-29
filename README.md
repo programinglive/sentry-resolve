@@ -171,6 +171,19 @@ php artisan sentry:resolve ISSUE-1
 php artisan sentry:resolve ISSUE-1 ISSUE-2 ISSUE-3
 ```
 
+#### Resolution Logging
+
+Every resolved issue is logged to a rotating log file (daily by default).
+
+**Environment variables:**
+
+- `SENTRY_RESOLVE_LOG_ENABLED` (default: `true`)
+- `SENTRY_RESOLVE_LOG_PATH` (default: `storage/logs` in Laravel or `storage/logs` relative to the package)
+- `SENTRY_RESOLVE_LOG_FREQUENCY` (options: `daily`, `monthly`, `yearly` — default: `daily`)
+- `SENTRY_RESOLVE_LOG_PREFIX` (default: `sentry-resolve`)
+
+**Log filenames:** `{prefix}-{YYYY-MM-DD}.log` (based on frequency).
+
 ### `sentry:debug`
 
 Tests your Sentry configuration and displays current settings.

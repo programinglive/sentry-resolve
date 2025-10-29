@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Mahardhika\SentryResolve\Commands;
 
+use Mahardhika\SentryResolve\Logging\ResolutionLogger;
 use Mahardhika\SentryResolve\SentryClient;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -18,11 +19,13 @@ use Symfony\Component\Console\Output\OutputInterface;
 class SentryResolveCommand extends Command
 {
     private SentryClient $client;
+    private ?ResolutionLogger $logger;
 
-    public function __construct(SentryClient $client)
+    public function __construct(SentryClient $client, ?ResolutionLogger $logger = null)
     {
         parent::__construct();
         $this->client = $client;
+        $this->logger = $logger;
     }
 
     protected function configure(): void
@@ -42,9 +45,11 @@ class SentryResolveCommand extends Command
                 $output->writeln("<info>Resolving issue {$identifier}...</info>");
                 $this->client->resolveIssue($identifier);
                 $output->writeln("<info>✓ Resolved issue {$identifier}</info>");
+                $this->logger?->logSuccess($identifier);
                 $successCount++;
             } catch (\Exception $e) {
                 $output->writeln("<error>✗ Failed to resolve issue {$identifier}: " . $e->getMessage() . "</error>");
+                $this->logger?->logFailure($identifier, $e->getMessage());
                 $failureCount++;
             }
         }

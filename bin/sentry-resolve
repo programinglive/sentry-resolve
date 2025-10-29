@@ -1,5 +1,4 @@
 #!/usr/bin/env php
-
 <?php
 
 declare(strict_types=1);
@@ -10,6 +9,7 @@ use Mahardhika\SentryResolve\Commands\SentryPullCommand;
 use Mahardhika\SentryResolve\Commands\SentryResolveCommand;
 use Mahardhika\SentryResolve\Commands\SentryDebugCommand;
 use Mahardhika\SentryResolve\Commands\SentryTestTokenCommand;
+use Mahardhika\SentryResolve\Logging\ResolutionLogger;
 use Mahardhika\SentryResolve\SentryClient;
 use Symfony\Component\Console\Application;
 
@@ -30,15 +30,38 @@ class SentryResolveCli
         return new SentryClient($token, $organization, $project);
     }
 
+    private function getEnv(string $key, mixed $default = null): mixed
+    {
+        $value = $_ENV[$key] ?? $_SERVER[$key] ?? getenv($key);
+        return $value === false ? $default : $value;
+    }
+
+    private function createResolutionLogger(): ?ResolutionLogger
+    {
+        $enabledValue = $this->getEnv('SENTRY_RESOLVE_LOG_ENABLED', 'true');
+        $enabled = !in_array(strtolower((string) $enabledValue), ['0', 'false', 'off', 'no'], true);
+
+        if (!$enabled) {
+            return null;
+        }
+
+        $path = (string) $this->getEnv('SENTRY_RESOLVE_LOG_PATH', __DIR__ . '/../storage/logs');
+        $frequency = (string) $this->getEnv('SENTRY_RESOLVE_LOG_FREQUENCY', 'daily');
+        $prefix = (string) $this->getEnv('SENTRY_RESOLVE_LOG_PREFIX', 'sentry-resolve');
+
+        return new ResolutionLogger($path, $frequency, $prefix);
+    }
+
     public function run(): int
     {
         $app = new Application('Sentry Resolve CLI', '1.0.0');
 
         try {
             $client = $this->getSentryClient();
+            $logger = $this->createResolutionLogger();
             
             $app->add(new SentryPullCommand($client));
-            $app->add(new SentryResolveCommand($client));
+            $app->add(new SentryResolveCommand($client, $logger));
             $app->add(new SentryDebugCommand($client));
             $app->add(new SentryTestTokenCommand($client));
         } catch (\InvalidArgumentException $e) {
