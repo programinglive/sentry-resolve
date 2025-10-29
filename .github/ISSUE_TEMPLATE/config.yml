@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security Vulnerability Disclosure
+    url: mailto:mahatma.mahardhika@programinglive.com
+    about: Please use our security contact for sensitive disclosures.

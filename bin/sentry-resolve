@@ -1,0 +1,54 @@
+#!/usr/bin/env php
+
+<?php
+
+declare(strict_types=1);
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Mahardhika\SentryResolve\Commands\SentryPullCommand;
+use Mahardhika\SentryResolve\Commands\SentryResolveCommand;
+use Mahardhika\SentryResolve\Commands\SentryDebugCommand;
+use Mahardhika\SentryResolve\Commands\SentryTestTokenCommand;
+use Mahardhika\SentryResolve\SentryClient;
+use Symfony\Component\Console\Application;
+
+class SentryResolveCli
+{
+    private function getSentryClient(): SentryClient
+    {
+        $token = $_ENV['SENTRY_TOKEN'] ?? $_SERVER['SENTRY_TOKEN'] ?? null;
+        $organization = $_ENV['SENTRY_ORG'] ?? $_SERVER['SENTRY_ORG'] ?? null;
+        $project = $_ENV['SENTRY_PROJECT'] ?? $_SERVER['SENTRY_PROJECT'] ?? null;
+
+        if (!$token || !$organization || !$project) {
+            throw new \InvalidArgumentException(
+                'Missing Sentry configuration. Please set SENTRY_TOKEN, SENTRY_ORG, and SENTRY_PROJECT environment variables.'
+            );
+        }
+
+        return new SentryClient($token, $organization, $project);
+    }
+
+    public function run(): int
+    {
+        $app = new Application('Sentry Resolve CLI', '1.0.0');
+
+        try {
+            $client = $this->getSentryClient();
+            
+            $app->add(new SentryPullCommand($client));
+            $app->add(new SentryResolveCommand($client));
+            $app->add(new SentryDebugCommand($client));
+            $app->add(new SentryTestTokenCommand($client));
+        } catch (\InvalidArgumentException $e) {
+            // Still add the test-token command even if config is missing
+            $app->add(new SentryTestTokenCommand(new SentryClient('dummy', 'dummy', 'dummy')));
+        }
+
+        return $app->run();
+    }
+}
+
+$cli = new SentryResolveCli();
+exit($cli->run());
