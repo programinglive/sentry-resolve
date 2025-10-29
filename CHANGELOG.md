@@ -1,21 +1,20 @@
 # Changelog
 
-All notable changes to `sentry-resolve` will be documented in this file.
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## 1.0.0 (2025-10-29)
 
-## [1.0.0] - 2024-01-XX
 
-### Added
-- Initial release of Sentry Resolve package
-- SentryClient class for API interactions
-- Console commands for issue management:
-  - `sentry:pull` - Fetch issues from Sentry
-  - `sentry:resolve` - Resolve Sentry issues
-  - `sentry:debug` - Test configuration
-  - `sentry:test-token` - Validate API tokens
-- Laravel service provider and integration
-- Standalone CLI application
-- Comprehensive test suite
-- Full documentation and examples
+### ✨ Features
+
+* initial open-source package setup ([6d4820f](https://github.com/programinglive/sentry-resolve/commit/6d4820fea7a66bd1080c3c336f45b1b432bcef1e))
+
+
+### 🧹 Chores
+
+* integrate commiter tooling ([7715202](https://github.com/programinglive/sentry-resolve/commit/7715202920346aadf4cc95a6b49123dae58f987a))
+
+## [1.0.0](https://github.com/programinglive/sentry-resolve/compare/v0.0.0...v1.0.0) (2025-10-29)
+
+### ✨ Features
+- Initial release of Sentry Resolve package including core SentryClient, console commands, Laravel integration, CLI binary, and documentation.
