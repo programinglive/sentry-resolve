@@ -1,6 +1,6 @@
 {
   "name": "programinglive-sentry-resolve",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": true,
   "description": "Release tooling for the programinglive/sentry-resolve PHP package",
   "license": "MIT",
