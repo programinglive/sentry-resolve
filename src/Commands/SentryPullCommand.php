@@ -29,7 +29,7 @@ class SentryPullCommand extends Command
     {
         $this
             ->addOption('limit', 'l', InputOption::VALUE_OPTIONAL, 'Number of issues', 25)
-            ->addOption('query', 'q', InputOption::VALUE_OPTIONAL, 'Sentry search query', 'is:unresolved')
+            ->addOption('query', null, InputOption::VALUE_OPTIONAL, 'Sentry search query', 'is:unresolved')
             ->addOption('sort', 's', InputOption::VALUE_OPTIONAL, 'Sort order (freq|new|priority|trend|user)', 'freq')
             ->addOption('output', 'o', InputOption::VALUE_OPTIONAL, 'Output file path', 'SENTRY_TODO.md');
     }
