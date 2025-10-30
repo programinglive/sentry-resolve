@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/programinglive/sentry-resolve/compare/v1.0.1...v1.0.2) (2025-10-30)
+
+
+### ✨ Features
+
+* add resolution logging with rotation ([84286a4](https://github.com/programinglive/sentry-resolve/commit/84286a4c220b25e28034f7ce23741b07ffcf5e21))
+
+
+### 🧹 Chores
+
+* bump commiter tooling to 1.1.0 ([f5237ab](https://github.com/programinglive/sentry-resolve/commit/f5237abb2f95ebf997ba746d85290727916a30f6))
+
 ### 1.0.1 (2025-10-29)
 
 
