@@ -1,0 +1,19 @@
+{
+  "currentPhase": "idle",
+  "taskDescription": "",
+  "bugFixed": false,
+  "testsCreated": false,
+  "testsPassed": false,
+  "testsSkipped": false,
+  "testsSkippedReason": "",
+  "documentationCreated": false,
+  "readyToCommit": false,
+  "readyCheckCompleted": false,
+  "released": false,
+  "releaseCommand": "",
+  "releaseNotes": "",
+  "commitAndPushCompleted": false,
+  "lastCommitMessage": "",
+  "lastPushBranch": "",
+  "history": []
+}

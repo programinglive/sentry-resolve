@@ -7,7 +7,7 @@
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
-    "@programinglive/commiter": "^1.0.6",
+    "@programinglive/commiter": "^1.1.0",
     "@programinglive/dev-workflow-mcp-server": "^1.1.7",
     "husky": "^9.1.7",
     "standard-version": "^9.5.0"
