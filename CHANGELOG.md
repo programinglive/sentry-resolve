@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.4](https://github.com/programinglive/sentry-resolve/compare/v1.0.3...v1.0.4) (2025-10-31)
+
+
+### 🐛 Bug Fixes
+
+* **cli:** improve sentry workflow and docs ([4417182](https://github.com/programinglive/sentry-resolve/commit/44171821434229cd755df753ffd67e26c14de448))
+
 ### [1.0.3](https://github.com/programinglive/sentry-resolve/compare/v1.0.2...v1.0.3) (2025-10-30)
 
 
