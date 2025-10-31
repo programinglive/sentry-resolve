@@ -6,6 +6,7 @@ declare(strict_types=1);
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use Dotenv\Dotenv;
+use Mahardhika\SentryResolve\Bootstrap\SentryBootstrapper;
 use Mahardhika\SentryResolve\Commands\SentryDebugCommand;
 use Mahardhika\SentryResolve\Commands\SentryPullCommand;
 use Mahardhika\SentryResolve\Commands\SentryResolveCommand;
@@ -18,6 +19,10 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+
+$dsn = $_ENV['SENTRY_DSN'] ?? $_SERVER['SENTRY_DSN'] ?? getenv('SENTRY_DSN');
+
+SentryBootstrapper::bootstrap($dsn);
 
 class SentryResolveCli
 {

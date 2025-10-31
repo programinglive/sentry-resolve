@@ -51,6 +51,7 @@ SENTRY_PROJECT=your_project
 SENTRY_TOKEN=sntrys_eyJpYXQiOjE3...
 SENTRY_ORG=your-organization-slug
 SENTRY_PROJECT=your-project-slug
+SENTRY_DSN=https://examplePublicKey@o0.ingest.sentry.io/0
 
 # Optional (for Laravel integration)
 SENTRY_TRACES_SAMPLE_RATE=1.0
