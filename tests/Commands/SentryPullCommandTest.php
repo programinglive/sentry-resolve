@@ -7,6 +7,7 @@ namespace Mahardhika\SentryResolve\Tests\Commands;
 use Mahardhika\SentryResolve\Commands\SentryPullCommand;
 use Mahardhika\SentryResolve\SentryClient;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\MockObject\MockObject;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Component\Console\Input\StringInput;
@@ -14,8 +15,18 @@ use Symfony\Component\Console\Output\BufferedOutput;
 
 class SentryPullCommandTest extends TestCase
 {
+    /** @var SentryClient&MockObject */
     private $client;
     private CommandTester $commandTester;
+
+    protected function tearDown(): void
+    {
+        foreach (['test-output.md', 'SENTRY_TODO.md', 'existing-output.md'] as $file) {
+            if (file_exists($file)) {
+                unlink($file);
+            }
+        }
+    }
 
     protected function setUp(): void
     {
@@ -79,6 +90,26 @@ class SentryPullCommandTest extends TestCase
 
         $this->assertEquals(0, $exitCode);
         $this->assertStringContainsString('No issues found', $this->commandTester->getDisplay());
+        $this->assertFileDoesNotExist('SENTRY_TODO.md');
+    }
+
+    public function testExecuteWithNoIssuesRemovesExistingFile(): void
+    {
+        $this->client
+            ->expects($this->once())
+            ->method('getIssues')
+            ->willReturn([]);
+
+        $outputFile = 'existing-output.md';
+        file_put_contents($outputFile, 'existing');
+
+        $exitCode = $this->commandTester->execute([
+            '--output' => $outputFile,
+        ]);
+
+        $this->assertEquals(0, $exitCode);
+        $this->assertStringContainsString('Removed ' . $outputFile, $this->commandTester->getDisplay());
+        $this->assertFileDoesNotExist($outputFile);
     }
 
     public function testExecuteWithException(): void

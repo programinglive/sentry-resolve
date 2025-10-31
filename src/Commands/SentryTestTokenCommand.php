@@ -17,21 +17,40 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class SentryTestTokenCommand extends Command
 {
+    public function __construct(private ?SentryClient $client = null)
+    {
+        parent::__construct();
+    }
+
     protected function configure(): void
     {
         $this
-            ->addArgument('token', InputArgument::REQUIRED, 'Sentry API token to test');
+            ->addArgument('token', InputArgument::OPTIONAL, 'Sentry API token to test');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $token = $input->getArgument('token');
 
+        if (!$token) {
+            if (!$this->client) {
+                $output->writeln('<error>❌ No token provided. Pass one explicitly: sentry:test-token {token}</error>');
+                return Command::INVALID;
+            }
+
+            $token = $this->client->getToken();
+
+            if (!$token) {
+                $output->writeln('<error>❌ No token configured. Set SENTRY_TOKEN or provide one as argument.</error>');
+                return Command::INVALID;
+            }
+        }
+
         $output->writeln('<info>Testing Sentry token...</info>');
         $output->writeln('Token: ' . substr($token, 0, 20) . '...');
 
         try {
-            $client = new SentryClient($token, 'test', 'test');
+            $client = $this->client ?? new SentryClient($token, 'test', 'test');
             $auth = $client->testToken();
 
             $output->writeln('<info>✅ Token is valid</info>');

@@ -5,13 +5,19 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+use Dotenv\Dotenv;
+use Mahardhika\SentryResolve\Commands\SentryDebugCommand;
 use Mahardhika\SentryResolve\Commands\SentryPullCommand;
 use Mahardhika\SentryResolve\Commands\SentryResolveCommand;
-use Mahardhika\SentryResolve\Commands\SentryDebugCommand;
 use Mahardhika\SentryResolve\Commands\SentryTestTokenCommand;
 use Mahardhika\SentryResolve\Logging\ResolutionLogger;
 use Mahardhika\SentryResolve\SentryClient;
 use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Command\Command as SymfonyCommand;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Output\OutputInterface;
 
 class SentryResolveCli
 {
@@ -54,22 +60,71 @@ class SentryResolveCli
 
     public function run(): int
     {
+        $this->loadEnvironment();
+
         $app = new Application('Sentry Resolve CLI', '1.0.0');
 
         try {
             $client = $this->getSentryClient();
             $logger = $this->createResolutionLogger();
-            
+
             $app->add(new SentryPullCommand($client));
             $app->add(new SentryResolveCommand($client, $logger));
             $app->add(new SentryDebugCommand($client));
             $app->add(new SentryTestTokenCommand($client));
         } catch (\InvalidArgumentException $e) {
-            // Still add the test-token command even if config is missing
-            $app->add(new SentryTestTokenCommand(new SentryClient('dummy', 'dummy', 'dummy')));
+            $missingConfigFactory = static function (string $name): SymfonyCommand {
+                return new class($name) extends SymfonyCommand {
+                    public function __construct(private string $commandName)
+                    {
+                        parent::__construct($commandName);
+                    }
+
+                    protected function configure(): void
+                    {
+                        $this->setDescription('Requires Sentry configuration.');
+
+                        if ($this->commandName === 'sentry:pull') {
+                            $this
+                                ->addOption('limit', 'l', InputOption::VALUE_OPTIONAL, 'Number of issues')
+                                ->addOption('query', null, InputOption::VALUE_OPTIONAL, 'Sentry search query')
+                                ->addOption('sort', 's', InputOption::VALUE_OPTIONAL, 'Sort order')
+                                ->addOption('output', 'o', InputOption::VALUE_OPTIONAL, 'Output file path');
+                        }
+
+                        if ($this->commandName === 'sentry:resolve') {
+                            $this->addArgument('identifiers', InputArgument::IS_ARRAY, 'Sentry issue identifiers');
+                        }
+                    }
+
+                    protected function execute(InputInterface $input, OutputInterface $output): int
+                    {
+                        $output->writeln('<error>❌ Missing Sentry configuration.</error>');
+                        $output->writeln('Please set SENTRY_TOKEN, SENTRY_ORG, and SENTRY_PROJECT before running this command.');
+
+                        return SymfonyCommand::INVALID;
+                    }
+                };
+            };
+
+            $app->add($missingConfigFactory('sentry:pull'));
+            $app->add($missingConfigFactory('sentry:resolve'));
+            $app->add($missingConfigFactory('sentry:debug'));
+            $app->add(new SentryTestTokenCommand());
         }
 
         return $app->run();
+    }
+
+    private function loadEnvironment(): void
+    {
+        $projectRoot = dirname(__DIR__);
+
+        if (!file_exists($projectRoot . '/.env')) {
+            return;
+        }
+
+        Dotenv::createImmutable($projectRoot)->safeLoad();
     }
 }
 
