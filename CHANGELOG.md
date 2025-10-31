@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.6](https://github.com/programinglive/sentry-resolve/compare/v1.0.5...v1.0.6) (2025-10-31)
+
+
+### 🐛 Bug Fixes
+
+* resolve Sentry issues by short id lookup ([59f8767](https://github.com/programinglive/sentry-resolve/commit/59f876788a84b8fa9f36a9e90eba79b324b4d623))
+
+
+### 🧹 Chores
+
+* **release:** 1.0.5 🚀 ([1ef4f65](https://github.com/programinglive/sentry-resolve/commit/1ef4f65a0d0dcc91de9f37d8f096a54a8e304f88))
+
 ### [1.0.4](https://github.com/programinglive/sentry-resolve/compare/v1.0.3...v1.0.4) (2025-10-31)
 
 
