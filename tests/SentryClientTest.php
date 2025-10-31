@@ -105,12 +105,12 @@ class SentryClientTest extends TestCase
             new Response(200, [], json_encode(['status' => 'resolved'])),
             new Response(200, [], json_encode(['status' => 'resolved'])),
         ];
-        
-        $client = $this->createMockClient($responses);
-        $results = $client->resolveIssues(['TEST-1', 'TEST-2']);
 
-        $this->assertTrue($results['TEST-1']);
-        $this->assertTrue($results['TEST-2']);
+        $client = $this->createMockClient($responses);
+        $results = $client->resolveIssues(['123', '456']);
+
+        $this->assertTrue($results['123']);
+        $this->assertTrue($results['456']);
     }
 
     public function testGetters(): void

@@ -7,11 +7,13 @@ namespace Mahardhika\SentryResolve\Tests\Commands;
 use Mahardhika\SentryResolve\Commands\SentryResolveCommand;
 use Mahardhika\SentryResolve\Logging\ResolutionLogger;
 use Mahardhika\SentryResolve\SentryClient;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Tester\CommandTester;
 
 class SentryResolveCommandTest extends TestCase
 {
+    /** @var SentryClient&MockObject */
     private $client;
     private string $logDir;
     private string $logPrefix;
@@ -78,7 +80,7 @@ class SentryResolveCommandTest extends TestCase
     {
         $this->client
             ->expects($this->once())
-            ->method('resolveIssue')
+            ->method('resolveIssueByIdentifier')
             ->with('TEST-1')
             ->willReturn(true);
 
@@ -100,7 +102,7 @@ class SentryResolveCommandTest extends TestCase
 
         $this->client
             ->expects($this->exactly(2))
-            ->method('resolveIssue')
+            ->method('resolveIssueByIdentifier')
             ->willReturnCallback(function (string $identifier) use (&$calls) {
                 $calls[] = $identifier;
                 return true;
@@ -123,7 +125,7 @@ class SentryResolveCommandTest extends TestCase
     {
         $this->client
             ->expects($this->once())
-            ->method('resolveIssue')
+            ->method('resolveIssueByIdentifier')
             ->with('TEST-1')
             ->willThrowException(new \RuntimeException('API Error'));
 
@@ -147,7 +149,7 @@ class SentryResolveCommandTest extends TestCase
 
         $this->client
             ->expects($this->exactly(2))
-            ->method('resolveIssue')
+            ->method('resolveIssueByIdentifier')
             ->willReturnCallback(function (string $identifier) use (&$callIndex, $expectedIdentifiers) {
                 $this->assertSame($expectedIdentifiers[$callIndex], $identifier);
 

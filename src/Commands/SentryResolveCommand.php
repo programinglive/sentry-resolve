@@ -43,7 +43,7 @@ class SentryResolveCommand extends Command
         foreach ($identifiers as $identifier) {
             try {
                 $output->writeln("<info>Resolving issue {$identifier}...</info>");
-                $this->client->resolveIssue($identifier);
+                $this->client->resolveIssueByIdentifier($identifier);
                 $output->writeln("<info>✓ Resolved issue {$identifier}</info>");
                 $this->logger?->logSuccess($identifier);
                 $successCount++;

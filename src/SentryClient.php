@@ -78,12 +78,27 @@ class SentryClient
         }
     }
 
+    public function resolveIssueByIdentifier(string $identifier): bool
+    {
+        if ($this->isNumericIdentifier($identifier)) {
+            return $this->resolveIssue($identifier);
+        }
+
+        $issueId = $this->findIssueIdByShortId($identifier);
+
+        if ($issueId === null) {
+            throw new \RuntimeException("Failed to resolve issue {$identifier}: Issue not found");
+        }
+
+        return $this->resolveIssue($issueId);
+    }
+
     public function resolveIssues(array $issueIds): array
     {
         $results = [];
         foreach ($issueIds as $issueId) {
             try {
-                $results[$issueId] = $this->resolveIssue($issueId);
+                $results[$issueId] = $this->resolveIssueByIdentifier($issueId);
             } catch (\RuntimeException $e) {
                 $results[$issueId] = false;
             }
@@ -140,5 +155,33 @@ class SentryClient
     public function getProject(): string
     {
         return $this->project;
+    }
+
+    private function findIssueIdByShortId(string $shortId): ?string
+    {
+        $issues = $this->getIssues([
+            'query' => $shortId,
+            'limit' => 1,
+        ]);
+
+        if (empty($issues)) {
+            return null;
+        }
+
+        $issue = $issues[0];
+
+        $issueShortId = isset($issue['shortId']) ? strtoupper((string) $issue['shortId']) : null;
+        $normalizedShortId = strtoupper($shortId);
+
+        if ($issueShortId !== null && $issueShortId !== $normalizedShortId) {
+            return null;
+        }
+
+        return isset($issue['id']) ? (string) $issue['id'] : null;
+    }
+
+    private function isNumericIdentifier(string $identifier): bool
+    {
+        return preg_match('/^\d+$/', $identifier) === 1;
     }
 }

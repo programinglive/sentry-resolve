@@ -22,6 +22,10 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 $dsn = $_ENV['SENTRY_DSN'] ?? $_SERVER['SENTRY_DSN'] ?? getenv('SENTRY_DSN');
 
+if ($dsn === false) {
+    $dsn = null;
+}
+
 SentryBootstrapper::bootstrap($dsn);
 
 class SentryResolveCli
