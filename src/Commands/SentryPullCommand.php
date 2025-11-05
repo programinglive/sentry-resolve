@@ -51,13 +51,11 @@ class SentryPullCommand extends Command
             ]);
 
             if (empty($issues)) {
-                if (file_exists($outputFile)) {
-                    unlink($outputFile);
-                    $output->writeln(sprintf('<info>No unresolved issues. Removed %s</info>', $outputFile));
-                } else {
-                    $output->writeln('<comment>No issues found matching the criteria.</comment>');
+                $output->writeln('<comment>No issues found matching the criteria.</comment>');
+                if (is_string($outputFile) && $outputFile !== '' && file_exists($outputFile)) {
+                    @unlink($outputFile);
+                    $output->writeln(sprintf('<info>Removed %s</info>', $outputFile));
                 }
-
                 return Command::SUCCESS;
             }
 

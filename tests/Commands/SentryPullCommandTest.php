@@ -86,11 +86,16 @@ class SentryPullCommandTest extends TestCase
             ->method('getIssues')
             ->willReturn([]);
 
+        $defaultOutput = 'SENTRY_TODO.md';
+        file_put_contents($defaultOutput, 'existing content');
+
         $exitCode = $this->commandTester->execute([]);
 
         $this->assertEquals(0, $exitCode);
-        $this->assertStringContainsString('No issues found', $this->commandTester->getDisplay());
-        $this->assertFileDoesNotExist('SENTRY_TODO.md');
+        $display = $this->commandTester->getDisplay();
+        $this->assertStringContainsString('No issues found', $display);
+        $this->assertStringContainsString('Removed ' . $defaultOutput, $display);
+        $this->assertFileDoesNotExist($defaultOutput);
     }
 
     public function testExecuteWithNoIssuesRemovesExistingFile(): void
@@ -108,7 +113,8 @@ class SentryPullCommandTest extends TestCase
         ]);
 
         $this->assertEquals(0, $exitCode);
-        $this->assertStringContainsString('Removed ' . $outputFile, $this->commandTester->getDisplay());
+        $display = $this->commandTester->getDisplay();
+        $this->assertStringContainsString('Removed ' . $outputFile, $display);
         $this->assertFileDoesNotExist($outputFile);
     }
 
