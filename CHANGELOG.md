@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.8](https://github.com/programinglive/sentry-resolve/compare/v1.0.6...v1.0.8) (2025-11-05)
+
+
+### 🐛 Bug Fixes
+
+* remove stale SENTRY_TODO on pull with no issues ([5cb4ca2](https://github.com/programinglive/sentry-resolve/commit/5cb4ca2b0d63be07439b068495ff600953fcb25e))
+
+
+### 📝 Documentation
+
+* add release notes for historical versions ([161ede1](https://github.com/programinglive/sentry-resolve/commit/161ede19f1df80556e086bc4278bd62811ea8c8f))
+
+
+### 🧹 Chores
+
+* sync release metadata for 1.0.7 ([6597b2a](https://github.com/programinglive/sentry-resolve/commit/6597b2a6c325c0f15c33b6091a76aed8fff6472d))
+
 ### [1.0.7](https://github.com/programinglive/sentry-resolve/compare/v1.0.6...v1.0.7) (2025-11-05)
 
 
