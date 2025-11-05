@@ -4,9 +4,16 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [1.0.7](https://github.com/programinglive/sentry-resolve/compare/v1.0.6...v1.0.7) (2025-11-05)
 
+
 ### 🐛 Bug Fixes
 
+* remove stale SENTRY_TODO on pull with no issues ([5cb4ca2](https://github.com/programinglive/sentry-resolve/commit/5cb4ca2b0d63be07439b068495ff600953fcb25e))
 * ensure `sentry:pull` removes stale `SENTRY_TODO.md` when no issues are found
+
+
+### 📝 Documentation
+
+* add release notes for historical versions ([161ede1](https://github.com/programinglive/sentry-resolve/commit/161ede19f1df80556e086bc4278bd62811ea8c8f))
 
 ### [1.0.6](https://github.com/programinglive/sentry-resolve/compare/v1.0.5...v1.0.6) (2025-10-31)
 
