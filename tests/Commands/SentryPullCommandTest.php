@@ -75,10 +75,16 @@ class SentryPullCommandTest extends TestCase
             ->method('getIssues')
             ->willReturn([]);
 
-        $exitCode = $this->commandTester->execute([]);
+        $outputFile = 'test-output-no-issues.md';
+        file_put_contents($outputFile, 'existing content');
+
+        $exitCode = $this->commandTester->execute([
+            '--output' => $outputFile,
+        ]);
 
         $this->assertEquals(0, $exitCode);
         $this->assertStringContainsString('No issues found', $this->commandTester->getDisplay());
+        $this->assertFileDoesNotExist($outputFile);
     }
 
     public function testExecuteWithException(): void
