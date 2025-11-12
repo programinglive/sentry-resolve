@@ -11,19 +11,6 @@
 ### ✅ Testing
 - Added regression coverage guaranteeing both default and custom output files are deleted when no issues are fetched.
 
----
-
-## v1.0.6 — 2025-10-31
-
-### 🐛 Bug Fixes
-- Resolve Sentry issues by short ID lookup for more reliable automation.
-
-### 🧹 Chores
-- Tagged the 1.0.5 release and aligned packaging metadata.
-
----
-
-## v1.0.5 — 2025-10-31
 
 No functional changes. Tag published to distribute the latest fixes captured in v1.0.4.
 
