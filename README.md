@@ -20,15 +20,17 @@ Automate Sentry issue resolution with PHP commands and CLI tools. This package p
 ### Composer Install
 
 ```bash
-composer require programinglive/sentry-resolve
+composer require --dev programinglive/sentry-resolve
 ```
 
 ### Laravel Installation
 
 1. Install the package:
 ```bash
-composer require programinglive/sentry-resolve
+composer require --dev programinglive/sentry-resolve
 ```
+
+> **Why dev-only?** This package automates fixing Sentry issues during development workflows and is not intended for production environments.
 
 2. Publish the configuration:
 ```bash

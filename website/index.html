@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sentry Resolve · Automate Sentry Issue Resolution</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="module" src="/main.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <nav class="nav">
+          <span class="logo">Sentry Resolve</span>
+          <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#cli">CLI</a>
+            <a href="#workflow">Workflow</a>
+            <a href="#faqs">FAQs</a>
+            <a class="btn btn-outline" href="https://github.com/programinglive/sentry-resolve" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </nav>
+        <div class="hero">
+          <div class="hero-content">
+            <h1>Ship focused fixes by resolving Sentry issues in bulk.</h1>
+            <p>
+              Sentry Resolve is a developer-only tool that pulls, triages, and resolves issues straight from your terminal.
+              Keep production clean while your team iterates faster in staging and local environments.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#get-started">Get Started</a>
+              <a class="btn" href="https://packagist.org/packages/programinglive/sentry-resolve" target="_blank" rel="noopener">View on Packagist</a>
+            </div>
+            <p class="hero-note">Designed for development environments · PHP 8.1+</p>
+          </div>
+          <div class="hero-terminal" aria-hidden="true">
+            <div class="terminal">
+              <div class="terminal-bar">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <pre class="terminal-body"><code>$ composer require --dev programinglive/sentry-resolve
+$ ./vendor/bin/sentry-resolve sentry:pull --limit=10
+✅ 10 issues pulled into SENTRY_TODO.md
+$ ./vendor/bin/sentry-resolve sentry:resolve ISSUE-101 ISSUE-117
+✅ Issues marked as resolved in Sentry
+</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="features" class="section section-features">
+        <div class="container">
+          <h2>Everything you need to tame noisy error queues</h2>
+          <div class="feature-grid">
+            <article class="feature-card">
+              <h3>Framework agnostic</h3>
+              <p>Use it in Laravel, Symfony, or any PHP project. The CLI ships with zero-config defaults that just work.</p>
+            </article>
+            <article class="feature-card">
+              <h3>Actionable TODOs</h3>
+              <p>Pull unresolved issues into a human-friendly TODO file, prioritized by frequency and user impact.</p>
+            </article>
+            <article class="feature-card">
+              <h3>Bulk resolution</h3>
+              <p>Resolve dozens of issues in one shot. Every action is logged so your team stays aligned.</p>
+            </article>
+            <article class="feature-card">
+              <h3>Token diagnostics</h3>
+              <p>Validate Sentry tokens and scopes without touching production. Ideal for CI checks and onboarding.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="get-started" class="section section-get-started">
+        <div class="container">
+          <div class="section-header">
+            <h2>Install in your dev stack</h2>
+            <p>Keep the package in dev dependencies so production deployments stay lean and secure.</p>
+          </div>
+          <div class="steps">
+            <div class="step">
+              <span class="step-number">1</span>
+              <div>
+                <h3>Add the package</h3>
+                <pre><code>composer require --dev programinglive/sentry-resolve</code></pre>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-number">2</span>
+              <div>
+                <h3>Publish config (Laravel)</h3>
+                <pre><code>php artisan vendor:publish --tag=sentry-resolve-config</code></pre>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-number">3</span>
+              <div>
+                <h3>Configure environment</h3>
+                <pre><code>SENTRY_TOKEN=your-sentry-api-token
+SENTRY_ORG=your-org
+SENTRY_PROJECT=your-project</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="cli" class="section section-cli">
+        <div class="container">
+          <div class="cli-grid">
+            <div>
+              <h2>CLI commands that make Sentry manageable</h2>
+              <p>From daily triage to final resolution, the CLI keeps your team in sync with Sentry without leaving the terminal.</p>
+            </div>
+            <div class="cli-cards">
+              <article class="cli-card">
+                <h3><code>sentry:pull</code></h3>
+                <p>Fetch unresolved issues and generate <code>SENTRY_TODO.md</code>.</p>
+                <pre><code>./vendor/bin/sentry-resolve sentry:pull --limit=10 --sort=freq</code></pre>
+              </article>
+              <article class="cli-card">
+                <h3><code>sentry:resolve</code></h3>
+                <p>Resolve a batch of issues after fixes merge.</p>
+                <pre><code>./vendor/bin/sentry-resolve sentry:resolve ISSUE-1 ISSUE-2</code></pre>
+              </article>
+              <article class="cli-card">
+                <h3><code>sentry:debug</code></h3>
+                <p>Inspect current configuration and token scopes. Perfect for CI health checks.</p>
+                <pre><code>./vendor/bin/sentry-resolve sentry:debug</code></pre>
+              </article>
+              <article class="cli-card">
+                <h3><code>sentry:test-token</code></h3>
+                <p>Validate tokens before sharing them with collaborators.</p>
+                <pre><code>./vendor/bin/sentry-resolve sentry:test-token &lt;token&gt;</code></pre>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="workflow" class="section section-workflow">
+        <div class="container">
+          <h2>Suggested dev workflow</h2>
+          <ol class="workflow-list">
+            <li>
+              <strong>Pull issues at stand-up:</strong> run <code>sentry:pull</code> and review <code>SENTRY_TODO.md</code> together.
+            </li>
+            <li>
+              <strong>Fix & test locally:</strong> each issue links back to Sentry for context, so developers can iterate fast.
+            </li>
+            <li>
+              <strong>Resolve post-merge:</strong> once patches deploy, mark the batch resolved with <code>sentry:resolve</code>.
+            </li>
+            <li>
+              <strong>Audit logs:</strong> use the built-in rotating logs to track who resolved what and when.
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section section-showcase">
+        <div class="container showcase">
+          <div>
+            <h2>Built for developer happiness</h2>
+            <p>
+              Sentry Resolve removes the friction of context switching between dashboards and the CLI. Automate the busywork, keep your focus on impactful fixes, and leave production untouched until you are ready to ship.
+            </p>
+          </div>
+          <div class="showcase-card">
+            <h3>Why dev-only?</h3>
+            <p>
+              The package automates corrective actions and writes diagnostic logs. Keep it confined to development, staging, or dedicated maintenance servers where you orchestrate Sentry clean-up without risking production throughput.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="faqs" class="section section-faq">
+        <div class="container">
+          <h2>FAQs</h2>
+          <div class="faq-grid">
+            <article class="faq-item">
+              <h3>Does this replace the Sentry dashboard?</h3>
+              <p>No. It complements the dashboard by scripting common maintenance flows so you can stay in your terminal.</p>
+            </article>
+            <article class="faq-item">
+              <h3>Can I automate with CI?</h3>
+              <p>Yes! Run the CLI in scheduled jobs to enforce hygiene. Use read-only tokens for pull operations and write-enabled tokens for resolution.</p>
+            </article>
+            <article class="faq-item">
+              <h3>Is Laravel required?</h3>
+              <p>Not at all. Laravel users get an artisan integration, but the CLI works in any PHP project.</p>
+            </article>
+            <article class="faq-item">
+              <h3>Where do I report issues?</h3>
+              <p>Open a ticket on <a href="https://github.com/programinglive/sentry-resolve/issues" target="_blank" rel="noopener">GitHub Issues</a> or start a discussion thread.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <div>
+          <span class="logo">Sentry Resolve</span>
+          <p>Open-source tooling for teams who take Sentry hygiene seriously.</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/programinglive/sentry-resolve" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://packagist.org/packages/programinglive/sentry-resolve" target="_blank" rel="noopener">Packagist</a>
+          <a href="https://github.com/programinglive/sentry-resolve/discussions" target="_blank" rel="noopener">Discussions</a>
+        </div>
+      </div>
+      <p class="footer-meta">&copy; <span id="currentYear"></span> Programing Live. Released under the MIT License.</p>
+    </footer>
+
+    <script>
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

@@ -1,5 +1,7 @@
 /vendor/
 /node_modules/
+/website/node_modules/
+/website/dist/
 /.phpunit.cache/
 /coverage/
 .env
