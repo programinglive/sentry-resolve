@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mahardhika\SentryResolve\Laravel;
 
 use Illuminate\Support\ServiceProvider;
+use InvalidArgumentException;
 use Mahardhika\SentryResolve\SentryClient;
 use Mahardhika\SentryResolve\Commands\SentryPullCommand;
 use Mahardhika\SentryResolve\Commands\SentryResolveCommand;
@@ -23,11 +24,21 @@ class SentryResolveServiceProvider extends ServiceProvider
 
         $this->app->singleton(SentryClient::class, function ($app) {
             $config = $app['config']['sentry-resolve'];
-            
+
+            $token = $config['token'] ?? null;
+            $organization = $config['organization'] ?? null;
+            $project = $config['project'] ?? null;
+
+            if (!$token || !$organization || !$project) {
+                throw new InvalidArgumentException(
+                    'Sentry Resolve is not configured. Please set SENTRY_TOKEN, SENTRY_ORG, and SENTRY_PROJECT, or update config/sentry-resolve.php.'
+                );
+            }
+
             return new SentryClient(
-                $config['token'],
-                $config['organization'],
-                $config['project']
+                (string) $token,
+                (string) $organization,
+                (string) $project
             );
         });
 

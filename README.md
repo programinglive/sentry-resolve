@@ -332,6 +332,10 @@ return [
 - Ensure service provider is registered
 - Check config is published
 
+**`Sentry Resolve is not configured` error**
+- Ensure `SENTRY_TOKEN`, `SENTRY_ORG`, and `SENTRY_PROJECT` are set in your environment or `config/sentry-resolve.php`.
+- Run `php artisan config:clear` followed by `php artisan config:cache` to refresh Laravel's configuration.
+
 ### Debug Mode
 
 Use the debug command to troubleshoot configuration:
