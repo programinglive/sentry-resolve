@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.9](https://github.com/programinglive/sentry-resolve/compare/v1.0.8...v1.0.9) (2025-11-24)
+
+
+### 🐛 Bug Fixes
+
+* **laravel:** handle missing sentry config in service provider ([40d55e6](https://github.com/programinglive/sentry-resolve/commit/40d55e62ef679306a984ae60d83929ee7c32bc18))
+
 ### [1.0.8](https://github.com/programinglive/sentry-resolve/compare/v1.0.6...v1.0.8) (2025-11-05)
 
 
