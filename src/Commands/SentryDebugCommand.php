@@ -16,9 +16,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class SentryDebugCommand extends Command
 {
-    private SentryClient $client;
+    private ?SentryClient $client;
 
-    public function __construct(SentryClient $client)
+    public function __construct(?SentryClient $client)
     {
         parent::__construct();
         $this->client = $client;
@@ -32,6 +32,14 @@ class SentryDebugCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln('<info>Testing Sentry configuration...</info>');
+
+        if ($this->client === null) {
+            $output->writeln('Token: NOT SET');
+            $output->writeln('Org: NOT SET');
+            $output->writeln('Project: NOT SET');
+            $output->writeln('<error>❌ Missing configuration</error>');
+            return Command::FAILURE;
+        }
 
         $token = $this->client->getToken();
         $org = $this->client->getOrganization();

@@ -32,16 +32,14 @@ class SentryResolveServiceProviderTest extends TestCase
         );
     }
 
-    public function testServiceRegistrationFailsWhenConfigMissing(): void
+    public function testServiceRegistrationReturnsNullWhenConfigMissing(): void
     {
         $this->app['config']->set('sentry-resolve.token', null);
         $this->app['config']->set('sentry-resolve.organization', null);
         $this->app['config']->set('sentry-resolve.project', null);
 
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Sentry Resolve is not configured. Please set SENTRY_TOKEN, SENTRY_ORG, and SENTRY_PROJECT, or update config/sentry-resolve.php.');
-
-        $this->app->make(SentryClient::class);
+        $client = $this->app->make(SentryClient::class);
+        $this->assertNull($client);
     }
 
     public function testConfigMerging(): void

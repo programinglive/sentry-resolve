@@ -130,4 +130,19 @@ class SentryPullCommandTest extends TestCase
         $this->assertEquals(1, $exitCode);
         $this->assertStringContainsString('Error: API Error', $this->commandTester->getDisplay());
     }
+
+    public function testExecuteWithoutConfiguredClient(): void
+    {
+        $command = new SentryPullCommand(null);
+        $commandTester = new CommandTester($command);
+
+        $exitCode = $commandTester->execute([]);
+
+        $this->assertEquals(1, $exitCode);
+        $display = $commandTester->getDisplay();
+        $this->assertStringContainsString('Sentry Resolve is not configured', $display);
+        $this->assertStringContainsString('SENTRY_TOKEN', $display);
+        $this->assertStringContainsString('SENTRY_ORG', $display);
+        $this->assertStringContainsString('SENTRY_PROJECT', $display);
+    }
 }

@@ -1,5 +1,15 @@
 # Release Notes
 
+## v1.0.8 — 2025-12-02
+
+### 🐛 Bug Fixes
+- Prevent `EntryNotFoundException` when running Sentry commands without `SENTRY_TOKEN`, `SENTRY_ORG`, or `SENTRY_PROJECT` by handling missing configuration gracefully and surfacing clear guidance in CLI output.
+
+### ✅ Testing
+- Added regression coverage ensuring each command reports missing configuration without crashing.
+
+---
+
 ## v1.0.7 — 2025-11-05
 
 ### 🐛 Bug Fixes

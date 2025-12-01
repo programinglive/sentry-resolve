@@ -18,10 +18,10 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class SentryResolveCommand extends Command
 {
-    private SentryClient $client;
+    private ?SentryClient $client;
     private ?ResolutionLogger $logger;
 
-    public function __construct(SentryClient $client, ?ResolutionLogger $logger = null)
+    public function __construct(?SentryClient $client, ?ResolutionLogger $logger = null)
     {
         parent::__construct();
         $this->client = $client;
@@ -36,6 +36,11 @@ class SentryResolveCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        if ($this->client === null) {
+            $output->writeln('<error>Sentry Resolve is not configured. Please set SENTRY_TOKEN, SENTRY_ORG, and SENTRY_PROJECT in your .env file or config/sentry-resolve.php</error>');
+            return Command::FAILURE;
+        }
+
         $identifiers = $input->getArgument('identifiers');
         $successCount = 0;
         $failureCount = 0;

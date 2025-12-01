@@ -17,9 +17,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class SentryPullCommand extends Command
 {
-    private SentryClient $client;
+    private ?SentryClient $client;
 
-    public function __construct(SentryClient $client)
+    public function __construct(?SentryClient $client)
     {
         parent::__construct();
         $this->client = $client;
@@ -36,6 +36,11 @@ class SentryPullCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        if ($this->client === null) {
+            $output->writeln('<error>Sentry Resolve is not configured. Please set SENTRY_TOKEN, SENTRY_ORG, and SENTRY_PROJECT in your .env file or config/sentry-resolve.php</error>');
+            return Command::FAILURE;
+        }
+
         $limit = (int) $input->getOption('limit');
         $query = $input->getOption('query');
         $sort = $input->getOption('sort');

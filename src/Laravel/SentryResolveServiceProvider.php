@@ -29,10 +29,9 @@ class SentryResolveServiceProvider extends ServiceProvider
             $organization = $config['organization'] ?? null;
             $project = $config['project'] ?? null;
 
+            // Return null if not configured, allowing commands to handle gracefully
             if (!$token || !$organization || !$project) {
-                throw new InvalidArgumentException(
-                    'Sentry Resolve is not configured. Please set SENTRY_TOKEN, SENTRY_ORG, and SENTRY_PROJECT, or update config/sentry-resolve.php.'
-                );
+                return null;
             }
 
             return new SentryClient(
