@@ -8,17 +8,16 @@
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
     "@programinglive/commiter": "^1.1.0",
-    "@programinglive/dev-workflow-mcp-server": "^1.1.7",
     "husky": "^9.1.7",
     "standard-version": "^9.5.0"
   },
   "scripts": {
     "test": "composer test",
     "prepare": "husky",
-    "release": "standard-version",
-    "release:major": "npm run release -- --release-as major",
-    "release:minor": "npm run release -- --release-as minor",
-    "release:patch": "npm run release -- --release-as patch"
+    "release": "node scripts/release.cjs",
+    "release:major": "node scripts/release.cjs major",
+    "release:minor": "node scripts/release.cjs minor",
+    "release:patch": "node scripts/release.cjs patch"
   },
   "standard-version": {
     "releaseCommitMessageFormat": "chore(release): {{currentTag}} 🚀",
