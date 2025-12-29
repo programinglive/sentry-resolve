@@ -75,4 +75,4 @@ Sentry Resolve is an open-source PHP package that automates common Sentry issue 
 
 ---
 
-_Last updated: 2025-11-05_
+_Last updated: 2025-12-29_
