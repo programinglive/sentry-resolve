@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.12](https://github.com/programinglive/sentry-resolve/compare/v1.0.11...v1.0.12) (2025-12-29)
+
+
+### ✨ Features
+
+* enhance sentry:pull output with resolution tips and remove CI badge ([c0978a6](https://github.com/programinglive/sentry-resolve/commit/c0978a62f07eda7a1afa5dc67c8523366345a197))
+
 ### [1.0.11](https://github.com/programinglive/sentry-resolve/compare/v1.0.10...v1.0.11) (2025-12-01)
 
 
