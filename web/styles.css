@@ -393,6 +393,17 @@ pre.terminal-body {
   color: var(--text-muted);
 }
 
+.cli-card pre {
+  margin-top: 0.8rem;
+  background: #1e1e1e;
+  color: #e5e7eb;
+  padding: 0.8rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
 .workflow-list {
   list-style: decimal-leading-zero;
   margin: 0;
