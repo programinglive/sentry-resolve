@@ -1,5 +1,19 @@
 # Release Notes
 
+| Version | Date | Description |
+| --------- | ----------- | ------- |
+| 1.1.0 | 2025-12-29 | UI/UX Overhaul and Branding |
+| 1.0.8 | 2024-12-02 | Missing Configuration Handling |
+| 1.0.7 | 2024-11-05 | Stale TODO Cleanup |
+| 1.0.6 | 2024-10-31 | Short ID Lookup |
+| 1.0.5 | 2024-10-31 | Meta/Tooling Alignment |
+| 1.0.4 | 2024-10-31 | CLI Workflow Improvements |
+| 1.0.3 | 2024-10-30 | Query Flag Collision Fix |
+| 1.0.2 | 2024-10-30 | Resolution Logging |
+| 1.0.1 | 2024-10-29 | Open Source Setup |
+| 1.0.0 | 2024-10-29 | Initial Release |
+
+
 ## v1.1.0 — 2025-12-29
 
 ### ✨ Features
