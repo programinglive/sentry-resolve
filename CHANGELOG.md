@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/programinglive/sentry-resolve/compare/v1.0.13...v1.1.0) (2025-12-29)
+
+
+### ✨ Features
+
+* add github icon to nav button ([4728688](https://github.com/programinglive/sentry-resolve/commit/472868870cbae117496237d944986a472aac68e2))
+* add sentry svg logo and link to hero section ([772534e](https://github.com/programinglive/sentry-resolve/commit/772534e7fa97a8019fd3dc99dd8ea520f11f4caf))
+
+
+### 💄 Styles
+
+* change feature grid to 2 columns for better readability ([eff0c4f](https://github.com/programinglive/sentry-resolve/commit/eff0c4feba68912ccb65e98c9ee9e72e9035bf72))
+* change steps layout to single column for better code readability ([763239b](https://github.com/programinglive/sentry-resolve/commit/763239bc01d017e3a11eaf5f634a33957441ed20))
+* increase terminal component width to 650px ([939808c](https://github.com/programinglive/sentry-resolve/commit/939808cfacd03ffc2cb159809695fa01cea06fb6))
+
+
+### 🐛 Bug Fixes
+
+* darken light mode text colors for better contrast ([dc6608d](https://github.com/programinglive/sentry-resolve/commit/dc6608d0da0d42841fb82803bb06b2c6aca0b8a4))
+* ensure CLI card code blocks are readable in light mode ([7da50da](https://github.com/programinglive/sentry-resolve/commit/7da50da741328798d6f934578bbb977eff80ab7b))
+* ensure step code blocks have dark background for legibility ([32f4439](https://github.com/programinglive/sentry-resolve/commit/32f4439ab77ed0263b8db2a2098466890b94393d))
+* repair light mode header background and make light mode default ([e8311a0](https://github.com/programinglive/sentry-resolve/commit/e8311a0e87ab77e225922f1e7043c2082904e9ba))
+
+
+### 📝 Documentation
+
+* update release notes for v1.1.0 ([57cca8f](https://github.com/programinglive/sentry-resolve/commit/57cca8f6ad893a3fe98b3c19a7c40a116ad6f9f2))
+
 ### [1.0.13](https://github.com/programinglive/sentry-resolve/compare/v1.0.12...v1.0.13) (2025-12-29)
 
 
