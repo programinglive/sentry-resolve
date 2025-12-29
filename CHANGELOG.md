@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.5](https://github.com/programinglive/sentry-resolve/compare/v1.1.4...v1.1.5) (2025-12-29)
+
+
+### 🐛 Bug Fixes
+
+* improve mobile responsiveness and center hero content ([0a6547a](https://github.com/programinglive/sentry-resolve/commit/0a6547a6e7e2cc7730361f0c80b94810e60dd0b4))
+* resolve mobile layout overflow and code wrapping ([eb4afad](https://github.com/programinglive/sentry-resolve/commit/eb4afad04b26409a44d521723efab6a9cd43448e))
+
 ### [1.1.4](https://github.com/programinglive/sentry-resolve/compare/v1.1.3...v1.1.4) (2025-12-29)
 
 
