@@ -216,6 +216,12 @@ a:hover {
   margin-top: 1.2rem;
 }
 
+.hero-badges {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
 .hero-terminal {
   display: flex;
   justify-content: center;
