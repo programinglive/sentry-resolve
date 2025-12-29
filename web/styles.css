@@ -224,7 +224,7 @@ a:hover {
   border-radius: 20px;
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
-  max-width: 400px;
+  max-width: 650px;
   width: 100%;
 }
 
