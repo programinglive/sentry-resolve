@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.7](https://github.com/programinglive/sentry-resolve/compare/v1.1.6...v1.1.7) (2025-12-29)
+
+
+### ♻️ Refactors
+
+* **web:** improve theme consistency and code block styling ([305530e](https://github.com/programinglive/sentry-resolve/commit/305530ed4c75bec70695770b0904a76636afa950))
+
 ### [1.1.6](https://github.com/programinglive/sentry-resolve/compare/v1.1.5...v1.1.6) (2025-12-29)
 
 
