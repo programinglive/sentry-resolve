@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.6](https://github.com/programinglive/sentry-resolve/compare/v1.1.5...v1.1.6) (2025-12-29)
+
+
+### 🐛 Bug Fixes
+
+* enforce mobile code block alignment and horizontal scrolling ([2829534](https://github.com/programinglive/sentry-resolve/commit/2829534c6d3c6877e440562b6ab8ce7568a551cd))
+
 ### [1.1.5](https://github.com/programinglive/sentry-resolve/compare/v1.1.4...v1.1.5) (2025-12-29)
 
 
