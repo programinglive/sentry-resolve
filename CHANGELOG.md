@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.3](https://github.com/programinglive/sentry-resolve/compare/v1.1.2...v1.1.3) (2025-12-29)
+
+
+### 📝 Documentation
+
+* add release notes for v1.1.2 ([a13432a](https://github.com/programinglive/sentry-resolve/commit/a13432a2a5993cf2b23cc0388605f5d500dac194))
+
+
+### ✨ Features
+
+* add version and download badges to website hero ([90cd77f](https://github.com/programinglive/sentry-resolve/commit/90cd77f89ed471f40792883cab3070979a7bee5a))
+
 ### [1.1.2](https://github.com/programinglive/sentry-resolve/compare/v1.1.1...v1.1.2) (2025-12-29)
 
 
