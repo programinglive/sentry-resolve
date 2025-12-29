@@ -1,5 +1,22 @@
 # Release Notes
 
+## v1.0.9 — 2025-12-29
+
+### ✨ Features
+- Launched the project documentation website on Netlify with Dark/Light mode support.
+- Enhanced `sentry:pull` command output to provide actionable resolution tips (`sentry:resolve {ID}`).
+
+### 🐛 Bug Fixes
+- Fixed `PrismJS` loading errors and improved syntax highlighting on the website.
+- Resolved terminal component styling issues and contrast problems in Light Mode.
+- Improved logo visibility and font rendering on various backgrounds.
+
+### 🧹 Chores
+- Removed the GitHub Actions workflow to optimize the development loop.
+- Updated `README.md` and `docs/PRD.md` to reflect the new website and removed stale badges.
+
+---
+
 ## v1.0.8 — 2025-12-02
 
 ### 🐛 Bug Fixes
