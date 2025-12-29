@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.8](https://github.com/programinglive/sentry-resolve/compare/v1.1.7...v1.1.8) (2025-12-29)
+
+
+### ✨ Features
+
+* **commands:** add AI development workflow detection to sentry:pull ([f6aa283](https://github.com/programinglive/sentry-resolve/commit/f6aa2839a6fab299236654672993de345fb17e38))
+
+
+### 🐛 Bug Fixes
+
+* restore accidentally deleted package.json ([395b1a8](https://github.com/programinglive/sentry-resolve/commit/395b1a8686e8c1e178599d87954e5adf0716fa31))
+
 ### [1.1.7](https://github.com/programinglive/sentry-resolve/compare/v1.1.6...v1.1.7) (2025-12-29)
 
 
