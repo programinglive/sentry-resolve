@@ -360,6 +360,13 @@ pre.terminal-body {
   margin-top: 0.8rem;
   white-space: pre-wrap;
   word-break: break-word;
+  background: #1e1e1e;
+  /* Dark background for contrast */
+  color: #e5e7eb;
+  /* Light text */
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
 }
 
 .cli-grid {
