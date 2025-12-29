@@ -17,6 +17,7 @@ Automate Sentry issue resolution with PHP commands and CLI tools. This package p
 - 🔧 **Bulk Resolution** - Resolve multiple issues at once
 - 🖥️ **CLI Tool** - Standalone command-line interface
 - 🧪 **Well Tested** - Comprehensive test coverage
+- 🤖 **AI Workflow Integration** - Built-in detection for `@programinglive/dev-workflow-mcp-server`
 - 📝 **Flexible Configuration** - Environment-based configuration
 
 ## Installation
@@ -256,6 +257,19 @@ fi
       exit 1
     fi
 ```
+
+### AI Development Workflow
+
+Sentry Resolve integrates with [`@programinglive/dev-workflow-mcp-server`](https://www.npmjs.com/package/@programinglive/dev-workflow-mcp-server) to help AI assistants follow best practices when fixing issues.
+
+When the MCP server is detected in your project, the `sentry:pull` command will automatically display workflow guidance for AI coding assistants. This ensures that every fix follows a standardized path:
+1. Start task
+2. Mark bug fixed
+3. Create tests
+4. Run tests
+5. Document changes
+6. Commit & Push
+7. Complete task
 
 ## Advanced Usage
 

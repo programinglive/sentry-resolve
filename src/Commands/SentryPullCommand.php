@@ -96,6 +96,30 @@ MD;
             $output->writeln("<info>Wrote {$outputFile}</info>");
             $output->writeln("<info>Found " . count($issues) . " issues to fix</info>");
 
+            
+            // Check if dev-workflow MCP server is installed
+            $hasDevWorkflow = $this->checkDevWorkflowMcp();
+            
+            if ($hasDevWorkflow) {
+                $output->writeln('');
+                $output->writeln('<fg=cyan>╔════════════════════════════════════════════════════════════════╗</>');
+                $output->writeln('<fg=cyan>║</> <fg=yellow;options=bold>🤖 AI Development Workflow Detected</>                          <fg=cyan>║</>');
+                $output->writeln('<fg=cyan>╚════════════════════════════════════════════════════════════════╝</>');
+                $output->writeln('');
+                $output->writeln('<comment>When using AI to resolve these issues, follow the MCP workflow:</comment>');
+                $output->writeln('');
+                $output->writeln('  <info>1.</info> <fg=green>mcp_dev-workflow_start_task</> - Start a new task');
+                $output->writeln('  <info>2.</info> <fg=green>mcp_dev-workflow_mark_bug_fixed</> - Mark the issue as fixed');
+                $output->writeln('  <info>3.</info> <fg=green>mcp_dev-workflow_create_tests</> - Create tests');
+                $output->writeln('  <info>4.</info> <fg=green>mcp_dev-workflow_run_tests</> - Run and verify tests');
+                $output->writeln('  <info>5.</info> <fg=green>mcp_dev-workflow_create_documentation</> - Document changes');
+                $output->writeln('  <info>6.</info> <fg=green>mcp_dev-workflow_commit_and_push</> - Commit and push');
+                $output->writeln('  <info>7.</info> <fg=green>mcp_dev-workflow_complete_task</> - Complete the task');
+                $output->writeln('');
+                $output->writeln('<comment>📦 Package: @programinglive/dev-workflow-mcp-server</comment>');
+                $output->writeln('');
+            }
+            
             $output->writeln('');
             $output->writeln('<comment>Tip: To resolve these issues, use the following command:</comment>');
             $output->writeln('<info>php artisan sentry:resolve {ID}</info>');
@@ -108,5 +132,29 @@ MD;
             $output->writeln("<error>Error: " . $e->getMessage() . "</error>");
             return Command::FAILURE;
         }
+    }
+    
+    /**
+     * Check if @programinglive/dev-workflow-mcp-server is installed
+     */
+    private function checkDevWorkflowMcp(): bool
+    {
+        // Check for node_modules directory
+        $nodeModulesPath = getcwd() . '/node_modules/@programinglive/dev-workflow-mcp-server';
+        if (is_dir($nodeModulesPath)) {
+            return true;
+        }
+        
+        // Check package.json for the dependency
+        $packageJsonPath = getcwd() . '/package.json';
+        if (file_exists($packageJsonPath)) {
+            $packageJson = json_decode(file_get_contents($packageJsonPath), true);
+            if (isset($packageJson['dependencies']['@programinglive/dev-workflow-mcp-server']) ||
+                isset($packageJson['devDependencies']['@programinglive/dev-workflow-mcp-server'])) {
+                return true;
+            }
+        }
+        
+        return false;
     }
 }

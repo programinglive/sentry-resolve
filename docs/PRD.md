@@ -37,7 +37,12 @@ Sentry Resolve is an open-source PHP package that automates common Sentry issue 
    - Container bindings for `SentryClient` and artisan command registration.
    - Fails fast with a clear error when required Sentry configuration (token, organization, project) is missing.
 
-5. **Project Website**
+5. **AI Development Workflow Integration**
+   - Built-in detection for `@programinglive/dev-workflow-mcp-server`.
+   - Automatic workflow guidance display in `sentry:pull` output when the MCP server is detected.
+   - Standardizes AI-assisted issue resolution with clear, actionable steps.
+
+6. **Project Website**
    - dedicated landing page hosting documentation, installation steps, and CLI usage examples.
    - Hosted on Netlify for high availability.
 

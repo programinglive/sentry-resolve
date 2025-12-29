@@ -148,4 +148,90 @@ class SentryPullCommandTest extends TestCase
         $this->assertStringContainsString('SENTRY_ORG', $display);
         $this->assertStringContainsString('SENTRY_PROJECT', $display);
     }
+
+    public function testDevWorkflowMcpDetectionWhenPackageExists(): void
+    {
+        $issues = [
+            [
+                'id' => '1',
+                'shortId' => 'TEST-1',
+                'title' => 'Test Issue',
+                'level' => 'error',
+                'count' => 10,
+                'userCount' => 5,
+                'culprit' => 'TestController.php',
+                'firstSeen' => '2023-01-01T00:00:00Z',
+                'lastSeen' => '2023-01-02T00:00:00Z',
+                'permalink' => 'https://sentry.io/issues/1'
+            ]
+        ];
+
+        $this->client
+            ->expects($this->once())
+            ->method('getIssues')
+            ->willReturn($issues);
+
+        // Create a temporary package.json with dev-workflow-mcp-server
+        $packageJson = [
+            'devDependencies' => [
+                '@programinglive/dev-workflow-mcp-server' => '^1.0.0'
+            ]
+        ];
+        file_put_contents('package.json', json_encode($packageJson));
+
+        $exitCode = $this->commandTester->execute([
+            '--output' => 'test-output.md'
+        ]);
+
+        $this->assertEquals(0, $exitCode);
+        $display = $this->commandTester->getDisplay();
+        $this->assertStringContainsString('AI Development Workflow Detected', $display);
+        $this->assertStringContainsString('mcp_dev-workflow_start_task', $display);
+        $this->assertStringContainsString('@programinglive/dev-workflow-mcp-server', $display);
+
+        // Clean up
+        if (file_exists('package.json')) {
+            unlink('package.json');
+        }
+        if (file_exists('test-output.md')) {
+            unlink('test-output.md');
+        }
+    }
+
+    public function testDevWorkflowMcpNotDetectedWhenPackageDoesNotExist(): void
+    {
+        $issues = [
+            [
+                'id' => '1',
+                'shortId' => 'TEST-1',
+                'title' => 'Test Issue',
+                'level' => 'error',
+                'count' => 10,
+                'userCount' => 5,
+                'culprit' => 'TestController.php',
+                'firstSeen' => '2023-01-01T00:00:00Z',
+                'lastSeen' => '2023-01-02T00:00:00Z',
+                'permalink' => 'https://sentry.io/issues/1'
+            ]
+        ];
+
+        $this->client
+            ->expects($this->once())
+            ->method('getIssues')
+            ->willReturn($issues);
+
+        $exitCode = $this->commandTester->execute([
+            '--output' => 'test-output.md'
+        ]);
+
+        $this->assertEquals(0, $exitCode);
+        $display = $this->commandTester->getDisplay();
+        $this->assertStringNotContainsString('AI Development Workflow Detected', $display);
+        $this->assertStringNotContainsString('mcp_dev-workflow_start_task', $display);
+
+        // Clean up
+        if (file_exists('test-output.md')) {
+            unlink('test-output.md');
+        }
+    }
 }
