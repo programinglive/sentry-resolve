@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.2](https://github.com/programinglive/sentry-resolve/compare/v1.1.1...v1.1.2) (2025-12-29)
+
+
+### 🐛 Bug Fixes
+
+* make release notes script robust and sync data ([b02d677](https://github.com/programinglive/sentry-resolve/commit/b02d67751f3906f3e6da4c5c8e64ee4894185cea))
+
 ### [1.1.1](https://github.com/programinglive/sentry-resolve/compare/v1.1.0...v1.1.1) (2025-12-29)
 
 
