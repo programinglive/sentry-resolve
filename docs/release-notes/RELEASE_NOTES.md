@@ -2,6 +2,7 @@
 
 | Version | Date | Description |
 | --------- | ----------- | ------- |
+| 1.1.5 | 2025-12-29 | improve mobile responsiveness and center hero content (0a6547a) |
 | 1.1.4 | 2025-12-29 | refine FAQ layout to 2 columns for better readability (cddd17e) |
 | 1.1.3 | 2025-12-29 | add release notes for v1.1.2 (a13432a) |
 | 1.1.2 | 2025-12-29 | make release notes script robust and sync data (b02d677) |
@@ -20,6 +21,14 @@
 
 
 
+
+
+## 1.1.5 – 🐛 Bug Fixes
+
+Released on **2025-12-29**.
+
+- improve mobile responsiveness and center hero content (0a6547a)
+- resolve mobile layout overflow and code wrapping (eb4afad)
 
 ## 1.1.4 – 💄 Styles
 

@@ -31,10 +31,12 @@
 
 pre,
 code {
-  white-space: pre-wrap !important;
-  word-break: break-all !important;
+  white-space: pre !important;
+  overflow-x: auto !important;
   max-width: 100% !important;
-  overflow-x: hidden !important;
+  text-align: left !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
 }
 
 * {
@@ -296,25 +298,19 @@ a:hover {
 }
 
 .terminal-body {
-  padding: 1.2rem 1.4rem 1.6rem;
+  padding: 1rem 1.25rem 1.4rem;
   color: #e5e7eb;
   background: #1e1e1e;
-  /* Match standard terminal dark */
   border-radius: 0 0 20px 20px;
-  /* Match parent radius */
   margin: 0;
   border: none;
   font-family: 'SFMono-Regular', 'JetBrains Mono', monospace;
   font-size: 0.9rem;
   line-height: 1.5;
-  white-space: pre-wrap !important;
-  word-break: break-all !important;
-  overflow-x: hidden;
-}
-
-.terminal-body code {
-  white-space: pre-wrap !important;
-  word-break: break-all !important;
+  white-space: pre !important;
+  overflow-x: auto !important;
+  text-align: left !important;
+  max-width: 100%;
 }
 
 /* Remove default pre styles when used as terminal body */
@@ -404,13 +400,10 @@ pre.terminal-body {
 .step pre,
 .step code {
   margin-top: 0.8rem;
-  white-space: pre-wrap !important;
-  word-break: break-all !important;
   background: #1e1e1e;
   color: #e5e7eb;
   padding: 1rem;
   border-radius: 8px;
-  overflow-x: hidden !important;
   max-width: 100% !important;
   box-sizing: border-box !important;
 }
@@ -446,9 +439,6 @@ pre.terminal-body {
   color: #e5e7eb;
   padding: 0.8rem;
   border-radius: 6px;
-  overflow-x: hidden;
-  white-space: pre-wrap !important;
-  word-break: break-all !important;
 }
 
 .workflow-list {
