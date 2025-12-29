@@ -18,11 +18,14 @@
   --bg-alt: #ffffff;
   --surface: rgba(255, 255, 255, 0.72);
   --surface-alt: rgba(241, 245, 249, 0.9);
-  --text: #1e293b;
-  --text-muted: #64748b;
+  --text: #0f172a;
+  /* Darker (Slate 900) */
+  --text-muted: #475569;
+  /* Darker (Slate 600) */
   --accent: #4f46e5;
   --accent-soft: rgba(79, 70, 229, 0.1);
-  --border: rgba(203, 213, 225, 0.6);
+  --border: rgba(203, 213, 225, 0.8);
+  /* Slightly more visible border */
   --shadow: 0 24px 48px rgba(148, 163, 184, 0.15);
 }
 
