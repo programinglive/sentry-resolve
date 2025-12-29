@@ -326,8 +326,11 @@ pre.terminal-body {
 
 .steps {
   display: grid;
-  gap: 1.4rem;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  grid-template-columns: 1fr;
+  max-width: 800px;
+  /* Optional: limit width so it doesn't stretch too much on huge screens */
+  margin: 0 auto;
 }
 
 .step {
