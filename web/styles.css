@@ -219,7 +219,8 @@ a:hover {
 }
 
 .terminal {
-  background: var(--surface-alt);
+  background: #2d2d2d;
+  /* Slightly lighter for bar area, or match body */
   border-radius: 20px;
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
@@ -256,7 +257,22 @@ a:hover {
 .terminal-body {
   padding: 1.2rem 1.4rem 1.6rem;
   color: #e5e7eb;
-  background: linear-gradient(180deg, rgba(79, 70, 229, 0.08), transparent);
+  background: #1e1e1e;
+  /* Match standard terminal dark */
+  border-radius: 0 0 20px 20px;
+  /* Match parent radius */
+  margin: 0;
+  border: none;
+  font-family: 'SFMono-Regular', 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+
+/* Remove default pre styles when used as terminal body */
+pre.terminal-body {
+  border: none;
+  border-radius: 0 0 20px 20px;
 }
 
 .section {
