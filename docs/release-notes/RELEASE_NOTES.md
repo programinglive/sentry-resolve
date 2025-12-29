@@ -1,19 +1,23 @@
 # Release Notes
 
-## v1.0.9 — 2025-12-29
+## v1.1.0 — 2025-12-29
 
 ### ✨ Features
 - Launched the project documentation website on Netlify with Dark/Light mode support.
 - Enhanced `sentry:pull` command output to provide actionable resolution tips (`sentry:resolve {ID}`).
+- **UI/UX Overhaul**: Improved the website layout with better contrast, a responsive 2-column feature grid, and single-column installation steps for enhanced code readability.
+- Added official Sentry and GitHub branding logos to the website.
 
 ### 🐛 Bug Fixes
-- Fixed `PrismJS` loading errors and improved syntax highlighting on the website.
+- Fixed `PrismJS` loading errors and improved syntax highlighting.
 - Resolved terminal component styling issues and contrast problems in Light Mode.
-- Improved logo visibility and font rendering on various backgrounds.
+- Darkened text colors in Light Mode to improve legibility and sharpness.
+- Enforced dark backgrounds for all code blocks to ensure readability across all themes.
 
 ### 🧹 Chores
+- Set Light Mode as the default website theme.
 - Removed the GitHub Actions workflow to optimize the development loop.
-- Updated `README.md` and `docs/PRD.md` to reflect the new website and removed stale badges.
+- Updated `README.md` and `docs/PRD.md` to reflect the new website.
 
 ---
 
