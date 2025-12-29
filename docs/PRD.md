@@ -37,6 +37,10 @@ Sentry Resolve is an open-source PHP package that automates common Sentry issue 
    - Container bindings for `SentryClient` and artisan command registration.
    - Fails fast with a clear error when required Sentry configuration (token, organization, project) is missing.
 
+5. **Project Website**
+   - dedicated landing page hosting documentation, installation steps, and CLI usage examples.
+   - Hosted on Netlify for high availability.
+
 ## Non-Goals
 
 - Implementing full Sentry API coverage.

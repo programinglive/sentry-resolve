@@ -2,9 +2,13 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/programinglive/sentry-resolve.svg?style=flat-square)](https://packagist.org/packages/programinglive/sentry-resolve)
 
+
 [![Total Downloads](https://img.shields.io/packagist/dt/programinglive/sentry-resolve.svg?style=flat-square)](https://packagist.org/packages/programinglive/sentry-resolve)
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Fsentry-resolve.netlify.app&label=website)](https://sentry-resolve.netlify.app)
 
 Automate Sentry issue resolution with PHP commands and CLI tools. This package provides a simple way to fetch, manage, and resolve Sentry issues across any PHP project.
+
+**[📚 Read the Full Documentation](https://sentry-resolve.netlify.app)**
 
 ## Features
 
