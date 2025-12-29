@@ -80,7 +80,7 @@ a:hover {
 
 .site-header {
   padding: 2.5rem 0 4rem;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(15, 23, 42, 0.85));
+  background: linear-gradient(135deg, var(--accent-soft), var(--bg));
   position: relative;
   overflow: hidden;
 }
