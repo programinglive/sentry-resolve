@@ -37,6 +37,28 @@ body {
   background-image: radial-gradient(circle at top left, var(--surface-alt), var(--bg) 55%);
   color: var(--text);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ... */
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
 }
 
 a {
@@ -96,11 +118,7 @@ a:hover {
   z-index: 1;
 }
 
-.logo {
-  font-weight: 700;
-  font-size: 1.25rem;
-  letter-spacing: 0.03em;
-}
+
 
 .nav-links {
   display: flex;
