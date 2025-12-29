@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.13](https://github.com/programinglive/sentry-resolve/compare/v1.0.12...v1.0.13) (2025-12-29)
+
+
+### 🧹 Chores
+
+* remove old website directory artifacts ([92aaaf3](https://github.com/programinglive/sentry-resolve/commit/92aaaf370e3d0a1f7b1fe8e3b991aeea6a71b947))
+* update logo and favicon with new vector design ([86b5ac6](https://github.com/programinglive/sentry-resolve/commit/86b5ac689c6b67163e60258139e738a0923b0476))
+
+
+### ✨ Features
+
+* add light/dark mode and update logo ([fc9336e](https://github.com/programinglive/sentry-resolve/commit/fc9336ecbaecb9fdc8d3f2d33c6bf11214b803cd))
+* add project landing page with netlify deployment configuration ([28b10f2](https://github.com/programinglive/sentry-resolve/commit/28b10f2eb80a6bbd657db7bfb94a47032586ef21))
+
+
+### 🐛 Bug Fixes
+
+* ensure logo file is properly committed ([12f256e](https://github.com/programinglive/sentry-resolve/commit/12f256ecb87a5d0e1d114a895205317ed5b96a79))
+* improve logo alignment and font rendering ([2995d30](https://github.com/programinglive/sentry-resolve/commit/2995d3064a24fe990c091a627607dc2a7c191e06))
+* resolve prismjs errors and fix light mode contrast issues ([222d2ff](https://github.com/programinglive/sentry-resolve/commit/222d2ff2cc4281c9c59bbd7aa86002005ee60ecd))
+* resolve terminal component styling issues ([5014d06](https://github.com/programinglive/sentry-resolve/commit/5014d06671ff829d65527427c643567252d826c2))
+
+
+### 📝 Documentation
+
+* add powere by sentry mention to website hero ([8e4f8f2](https://github.com/programinglive/sentry-resolve/commit/8e4f8f202aaa231ab06347f1d21d13a73af3bb06))
+* update readme and PRD with website details ([c376a4d](https://github.com/programinglive/sentry-resolve/commit/c376a4d6787f250fc51b9ae670d1d75caef3f3c2))
+* update release notes for v1.0.9 ([83646c0](https://github.com/programinglive/sentry-resolve/commit/83646c0b86c17d90203486aa7b51f018f29692d3))
+
 ### [1.0.12](https://github.com/programinglive/sentry-resolve/compare/v1.0.11...v1.0.12) (2025-12-29)
 
 
