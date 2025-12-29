@@ -70,7 +70,10 @@ class SentryPullCommandTest extends TestCase
         ]);
 
         $this->assertEquals(0, $exitCode);
-        $this->assertStringContainsString('Found 1 issues to fix', $this->commandTester->getDisplay());
+        $display = $this->commandTester->getDisplay();
+        $this->assertStringContainsString('Found 1 issues to fix', $display);
+        $this->assertStringContainsString('Tip: To resolve these issues, use the following command:', $display);
+        $this->assertStringContainsString('Example: php artisan sentry:resolve TEST-1', $display);
         $this->assertFileExists('test-output.md');
         
         // Clean up

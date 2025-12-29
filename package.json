@@ -5,9 +5,9 @@
   "description": "Release tooling for the programinglive/sentry-resolve PHP package",
   "license": "MIT",
   "devDependencies": {
-    "@commitlint/cli": "^20.1.0",
-    "@commitlint/config-conventional": "^20.0.0",
-    "@programinglive/commiter": "^1.1.0",
+    "@commitlint/cli": "^20.2.0",
+    "@commitlint/config-conventional": "^20.2.0",
+    "@programinglive/commiter": "^1.2.17",
     "husky": "^9.1.7",
     "standard-version": "^9.5.0"
   },
@@ -17,7 +17,8 @@
     "release": "node scripts/release.cjs",
     "release:major": "node scripts/release.cjs major",
     "release:minor": "node scripts/release.cjs minor",
-    "release:patch": "node scripts/release.cjs patch"
+    "release:patch": "node scripts/release.cjs patch",
+    "release:first": "node scripts/release.cjs --first-release"
   },
   "standard-version": {
     "releaseCommitMessageFormat": "chore(release): {{currentTag}} 🚀",

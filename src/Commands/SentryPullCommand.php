@@ -95,6 +95,13 @@ MD;
             
             $output->writeln("<info>Wrote {$outputFile}</info>");
             $output->writeln("<info>Found " . count($issues) . " issues to fix</info>");
+
+            $output->writeln('');
+            $output->writeln('<comment>Tip: To resolve these issues, use the following command:</comment>');
+            $output->writeln('<info>php artisan sentry:resolve {ID}</info>');
+            if (isset($issues[0]['shortId'])) {
+                $output->writeln('<comment>Example: php artisan sentry:resolve ' . $issues[0]['shortId'] . '</comment>');
+            }
             
             return Command::SUCCESS;
         } catch (\Exception $e) {

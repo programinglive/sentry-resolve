@@ -24,7 +24,7 @@ Sentry Resolve is an open-source PHP package that automates common Sentry issue 
    - Token, organization, and project configuration via environment variables or config files.
 
 2. **Console Commands**
-   - `sentry:pull`: generates `SENTRY_TODO.md` with prioritized unresolved issues and removes the file when no matching issues are returned to prevent stale tasks.
+   - `sentry:pull`: generates `SENTRY_TODO.md` with prioritized unresolved issues and removes the file when no matching issues are returned to prevent stale tasks. Provides helpful tips on how to resolve identified issues.
    - `sentry:resolve`: marks one or more Sentry issues as resolved.
    - `sentry:debug`: verifies local configuration.
    - `sentry:test-token`: validates API tokens interactively.
