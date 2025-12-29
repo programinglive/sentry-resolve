@@ -49,19 +49,7 @@ a:hover {
   opacity: 0.85;
 }
 
-pre {
-  margin: 0;
-  background: rgba(15, 23, 42, 0.9);
-  border-radius: calc(var(--radius) * 0.8);
-  padding: 1rem;
-  border: 1px solid var(--border);
-  overflow-x: auto;
-  font-size: 0.95rem;
-}
 
-code {
-  font-family: 'SFMono-Regular', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-}
 
 .container {
   width: min(1100px, 92%);
@@ -213,7 +201,7 @@ code {
 }
 
 .terminal {
-  background: rgba(15, 23, 42, 0.9);
+  background: var(--surface-alt);
   border-radius: 20px;
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
@@ -258,7 +246,7 @@ code {
 }
 
 .section:nth-of-type(even) {
-  background: rgba(15, 23, 42, 0.72);
+  background: var(--surface);
 }
 
 .section h2 {
@@ -282,7 +270,7 @@ code {
 }
 
 .feature-card {
-  background: rgba(15, 23, 42, 0.85);
+  background: var(--surface-alt);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1.8rem;
@@ -306,7 +294,7 @@ code {
 }
 
 .step {
-  background: rgba(30, 41, 59, 0.9);
+  background: var(--surface-alt);
   border-radius: var(--radius);
   border: 1px solid var(--border);
   padding: 1.6rem;
@@ -347,7 +335,7 @@ code {
 }
 
 .cli-card {
-  background: rgba(15, 23, 42, 0.85);
+  background: var(--surface-alt);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1.6rem;
@@ -367,14 +355,14 @@ code {
 }
 
 .workflow-list li {
-  background: rgba(15, 23, 42, 0.85);
+  background: var(--surface-alt);
   padding: 1.6rem;
   border-radius: var(--radius);
   border: 1px solid var(--border);
 }
 
 .section-showcase {
-  background: rgba(15, 23, 42, 0.75);
+  background: var(--surface);
 }
 
 .showcase {
@@ -385,7 +373,7 @@ code {
 }
 
 .showcase-card {
-  background: rgba(99, 102, 241, 0.12);
+  background: var(--accent-soft);
   border-radius: var(--radius);
   padding: 1.8rem;
   border: 1px solid rgba(99, 102, 241, 0.3);
@@ -393,7 +381,7 @@ code {
 }
 
 .section-faq {
-  background: rgba(15, 23, 42, 0.82);
+  background: var(--surface);
 }
 
 .faq-grid {
@@ -403,7 +391,7 @@ code {
 }
 
 .faq-item {
-  background: rgba(15, 23, 42, 0.85);
+  background: var(--surface-alt);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1.6rem;
@@ -417,7 +405,7 @@ code {
 
 .site-footer {
   padding: 2.5rem 0 2rem;
-  background: rgba(12, 19, 34, 0.94);
+  background: var(--bg-alt);
   border-top: 1px solid rgba(148, 163, 184, 0.15);
   text-align: center;
 }
