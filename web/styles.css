@@ -29,6 +29,14 @@
   --shadow: 0 24px 48px rgba(148, 163, 184, 0.15);
 }
 
+pre,
+code {
+  white-space: pre-wrap !important;
+  word-break: break-all !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -42,6 +50,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 /* ... */
@@ -218,8 +227,31 @@ a:hover {
 
 .hero-badges {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.8rem;
   margin-top: 1rem;
+}
+
+.hero-attribution {
+  margin-top: 1.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  opacity: 0.9;
+}
+
+.hero-attribution-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.hero-attribution-link {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text);
+  font-weight: 600;
 }
 
 .hero-terminal {
@@ -275,7 +307,14 @@ a:hover {
   font-family: 'SFMono-Regular', 'JetBrains Mono', monospace;
   font-size: 0.9rem;
   line-height: 1.5;
-  overflow-x: auto;
+  white-space: pre-wrap !important;
+  word-break: break-all !important;
+  overflow-x: hidden;
+}
+
+.terminal-body code {
+  white-space: pre-wrap !important;
+  word-break: break-all !important;
 }
 
 /* Remove default pre styles when used as terminal body */
@@ -362,17 +401,18 @@ pre.terminal-body {
   box-shadow: 0 10px 22px rgba(99, 102, 241, 0.4);
 }
 
-.step pre {
+.step pre,
+.step code {
   margin-top: 0.8rem;
-  white-space: pre-wrap;
-  word-break: break-word;
+  white-space: pre-wrap !important;
+  word-break: break-all !important;
   background: #1e1e1e;
-  /* Dark background for contrast */
   color: #e5e7eb;
-  /* Light text */
   padding: 1rem;
   border-radius: 8px;
-  overflow-x: auto;
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 .cli-grid {
@@ -399,15 +439,16 @@ pre.terminal-body {
   color: var(--text-muted);
 }
 
-.cli-card pre {
+.cli-card pre,
+.cli-card code {
   margin-top: 0.8rem;
   background: #1e1e1e;
   color: #e5e7eb;
   padding: 0.8rem;
   border-radius: 6px;
-  overflow-x: auto;
-  white-space: pre-wrap;
-  word-break: break-word;
+  overflow-x: hidden;
+  white-space: pre-wrap !important;
+  word-break: break-all !important;
 }
 
 .workflow-list {
@@ -499,23 +540,30 @@ pre.terminal-body {
   }
 
   .hero {
-    grid-template-columns: 1fr;
+    display: flex !important;
+    flex-direction: column !important;
     text-align: center;
-    gap: 2rem;
+    gap: 1.5rem;
+    width: 100%;
   }
 
   .hero-content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0 1rem;
+    width: 100%;
+    max-width: 100%;
   }
 
   .hero-actions {
     justify-content: center;
   }
 
-  .hero-badges {
+  .hero-badges,
+  .hero-attribution {
     justify-content: center;
+    width: 100%;
   }
 
   .terminal {
@@ -523,7 +571,7 @@ pre.terminal-body {
   }
 
   .section {
-    padding: 3.8rem 0;
+    padding: 3.2rem 0;
   }
 
   .feature-grid,
