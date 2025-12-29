@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.4](https://github.com/programinglive/sentry-resolve/compare/v1.1.3...v1.1.4) (2025-12-29)
+
+
+### 💄 Styles
+
+* refine FAQ layout to 2 columns for better readability ([cddd17e](https://github.com/programinglive/sentry-resolve/commit/cddd17ea45b92e0fd10762c57c11e5f62c5e12a4))
+
 ### [1.1.3](https://github.com/programinglive/sentry-resolve/compare/v1.1.2...v1.1.3) (2025-12-29)
 
 
