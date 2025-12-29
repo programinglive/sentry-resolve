@@ -67,7 +67,7 @@ function updateReleaseNotes({
 
 function insertReleaseNotesEntry({ content, version, releaseDate, highlight, sectionHeading, detailBullets }) {
   const lines = content.split('\n');
-  const headerSeparatorIndex = lines.findIndex((line) => line.trim().startsWith('|---------'));
+  const headerSeparatorIndex = lines.findIndex((line) => line.trim().match(/^\|\s*-+\s*\|\s*-+\s*\|\s*-+\s*\|/));
   if (headerSeparatorIndex === -1) {
     throw new Error('Unable to locate release notes table header.');
   }

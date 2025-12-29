@@ -2,6 +2,7 @@
 
 | Version | Date | Description |
 | --------- | ----------- | ------- |
+| 1.1.1 | 2025-12-29 | Release Notes Format Fix |
 | 1.1.0 | 2025-12-29 | UI/UX Overhaul and Branding |
 | 1.0.8 | 2024-12-02 | Missing Configuration Handling |
 | 1.0.7 | 2024-11-05 | Stale TODO Cleanup |
