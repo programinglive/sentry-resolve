@@ -2,6 +2,7 @@
 
 | Version | Date | Description |
 | --------- | ----------- | ------- |
+| 1.1.2 | 2025-12-29 | make release notes script robust and sync data (b02d677) |
 | 1.1.1 | 2025-12-29 | Release Notes Format Fix |
 | 1.1.0 | 2025-12-29 | UI/UX Overhaul and Branding |
 | 1.0.8 | 2024-12-02 | Missing Configuration Handling |
@@ -14,6 +15,13 @@
 | 1.0.1 | 2024-10-29 | Open Source Setup |
 | 1.0.0 | 2024-10-29 | Initial Release |
 
+
+
+## 1.1.2 – 🐛 Bug Fixes
+
+Released on **2025-12-29**.
+
+- make release notes script robust and sync data (b02d677)
 
 ## v1.1.0 — 2025-12-29
 
